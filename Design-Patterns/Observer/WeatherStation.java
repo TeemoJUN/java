@@ -1,5 +1,8 @@
 package test;
-
+/*
+ * 来自于《headFirst 设计模式》
+ *
+ * */
 import java.util.ArrayList;
 
 interface Subject{
@@ -90,7 +93,7 @@ class CurrentConditionDisplay implements Observer,DisplayElement{
 public class WeatherStation {
 	public static void main(String[] args){
 		WeatherDate weatherDate=new WeatherDate();
-		
+		//注册		
 		CurrentConditionDisplay currentDisplay=new CurrentConditionDisplay(weatherDate);
 		
 		weatherDate.serMeasureDate(1.1f, 12.3f, 1.4f);
