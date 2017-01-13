@@ -3,12 +3,12 @@ package util;
 import java.sql.*;
 
 public class DB {
-	//ÓÃ»§Ãû£¬ÃÜÂë
+	//ç”¨æˆ·å¯†ç 	
 	private static final String USER = "";
 	private static final String PASSWORD = "";
+	String URL="jdbc:mysql://localhost:3306/test";
 	
 	public static Connection getConn() {
-		String URL="jdbc:mysql://localhost:3306/test";
 		Connection conn = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
