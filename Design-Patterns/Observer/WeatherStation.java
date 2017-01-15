@@ -1,7 +1,8 @@
 package test;
 /*
  * 来自于《headFirst 设计模式》
- *
+ * 其中WeatherDate实现Subject，用一个ArrayList存贮来登记的人员，每当来消息时调用notifyObservers（）来通知每一个登记的人
+ *CurrentConditionDisplay实现Observer，和DisplayElement。每次创建新的class时都要实现Observer，他们之间用接口来调用
  * */
 import java.util.ArrayList;
 
