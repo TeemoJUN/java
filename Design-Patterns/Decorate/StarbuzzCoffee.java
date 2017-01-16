@@ -15,7 +15,7 @@ abstract class  Beverage{
 	}
 	public abstract double cost();
 }
-
+//抽象的装饰者
 abstract class CondimentDecorator extends Beverage{
 	public abstract String getDescription();
 }
