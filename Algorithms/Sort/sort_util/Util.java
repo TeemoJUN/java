@@ -4,25 +4,25 @@ import java.util.Random;
 
 public class Util {
 
-	//µ±v<wÊ±Îªtrue
+	//å½“v<wæ—¶ä¸ºtrue
 	public static boolean less(Integer v,Integer w){
 		return v.compareTo(w)<0;
 	}
 	
-	//½»»»Á½¸öÊý
+	//äº¤æ¢ä¸¤ä¸ªæ•°
 	private static void exch(int[] a,int i,int j){
 		int temp=a[i];
 		a[i]=a[j];
 		a[j]=temp;
 	}
-	//Êä³öÊý×é
+	//è¾“å‡ºæ•°ç»„
 	public static void show(Integer[] a){
 		for(int i=0;i<a.length;i++){
 			System.out.print(a[i]+"  ");
 		}
 		System.out.println();
 	}
-	//ÅÐ¶ÏÅÅÐòÊÇ·ñ³É¹¦
+	//åˆ¤æ–­æŽ’åºæ˜¯å¦æˆåŠŸ
 	public static boolean isSort(Integer[] a){
 		for(int i=1;i<a.length;i++){
 			if(less(a[i],a[i-1])){
@@ -34,7 +34,7 @@ public class Util {
 	
 	private static Random ran=new Random(47);
 	
-	//²úÉúËæ»úÊý×é
+	//äº§ç”Ÿéšæœºæ•°ç»„
 	public static Integer[] array(int n){
 		Integer[] arr=new Integer[n];
 		for(int i=0;i<arr.length;i++){
