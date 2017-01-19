@@ -2,19 +2,19 @@ package merge;
 
 import sort_util.*;
 /*
- * Ô­µØ¹é²¢ÅÅĞò
+ * åŸåœ°å½’å¹¶æ’åº
  * 
  * */
 class SortOne{
 	private static Integer[] aux;
 	public static void merge(Integer[] a,int lo,int mid,int hi){
 		int i=lo,j=mid+1;
-		//´´½¨ÁíÒ»¸öÊı×éÀ´½ÓÊÕ
+		//åˆ›å»ºå¦ä¸€ä¸ªæ•°ç»„æ¥æ¥æ”¶
 		for(int k=0;k<=hi;k++){
 			aux[k]=a[k];
 		}
 	
-		//×¢Òâ»­Í¼Àí½âÕâ
+		//æ³¨æ„ç”»å›¾ç†è§£è¿™
 		for(int k=lo;k<=hi;k++){
 			if(i>mid){
 				a[k]=aux[j++];
@@ -46,17 +46,19 @@ class SortOne{
 	}
 	public static void main(String[] args){
 		Integer[] a=Util.array(20);
-		System.out.println("Sort.....ÅÅĞòÇ°.........");
+		System.out.println("Sort.....æ’åºå‰.........");
 		Util.show(a);
 		sort(a);
-		System.out.println("Sort.....ÅÅĞòºó.........");
+		System.out.println("Sort.....æ’åºå.........");
 		Util.show(a);
 	}
 	
 }
-
+/*
+*å½’å¹¶æ’åºæ”¹è‰¯ç‰ˆï¼Œå½“å°äºMINæ•°çš„æ—¶å€™å¯ç”¨æ’å…¥æ’åº
+*/
 class SortTwo{
-	public static final int MIN=4;
+	public static final int MIN=4;//è®¾ç½®æœ€å°æ•°ä¸º	
 	public static Integer[] aux;
 	public static void merge(Integer[] a,int lo,int mid,int hi){
 		int i=lo;
@@ -82,7 +84,7 @@ class SortTwo{
 		}
 	} 
 	
-	//²åÈëÅÅĞò
+	//æ’å…¥æ’åº
 	public static void insert(Integer[] a,int lo,int hi){
 		for(int i=lo;i<hi;i++){
 			for(int j=i+1;j>lo&&Util.less(a[j], a[j-1]);j--){	
@@ -90,17 +92,20 @@ class SortTwo{
 			}
 		}
 	}
+	
+	
 	public static void sort(Integer[] a){
 		aux=new Integer[a.length];
 		sort(a,0,a.length-1);
 	}
+	
 	
 	public static void sort(Integer[] a,int lo,int hi){
 		if(lo>=hi){
 			return;
 		}
 		else if(hi-lo<MIN){
-			insert(a,lo,hi);
+			insert(a,lo,hi);//å¯ç”¨æ’å…¥		
 		}
 		else{
 			int mid=lo+(hi-lo)/2;
@@ -110,12 +115,13 @@ class SortTwo{
 		}
 		
 	}
+	
 	public static void main(String[] args){
 		Integer[] arr=Util.array(20);
-		System.out.println("SortTwo----ÅÅĞòÇ°-------");
+		System.out.println("SortTwo----æ’åºå‰-------");
 		Util.show(arr);
 		sort(arr);
-		System.out.println("SortTwo----ÅÅĞòºó-------");
+		System.out.println("SortTwo----æ’åºå-------");
 		Util.show(arr);
 	}
 }
