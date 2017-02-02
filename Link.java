@@ -5,7 +5,7 @@ import java.util.Scanner;
 import edu.princeton.cs.algs4.Queue;
 
 
-public class SequentialSearchST<Key,Value> {
+public class Link<Key,Value> {
 	private Node first;
 	private int N;
 	private	class Node{
@@ -20,7 +20,7 @@ public class SequentialSearchST<Key,Value> {
 		}
 	}
 	
-	//ÓÉ¼ü²éÖµ
+	//ç”±é”®æŸ¥å€¼
 	public Value get(Key key){
 		for(Node x=first;x!=null;x=x.next){
 			if(key.equals(x.key)){
@@ -30,7 +30,7 @@ public class SequentialSearchST<Key,Value> {
 		return null;
 	}
 	
-	//Ôö¼Ó½Úµã
+	//å¢åŠ èŠ‚ç‚¹
 	public void put(Key key,Value value){
 		for(Node x=first;x!=null;x=x.next){
 			if(key.equals(x.key)){
@@ -42,17 +42,17 @@ public class SequentialSearchST<Key,Value> {
 		N++;
 	}
 	
-	//·µ»ØÁ´±í´óĞ¡
+	//è¿”å›é“¾è¡¨å¤§å°
 	public int size(){
 		return N;
 	}
 	
-	//Á´±íÊÇÊÇ·ñÎª¿Õ
+	//é“¾è¡¨æ˜¯æ˜¯å¦ä¸ºç©º
 	public boolean isEmpty(){
 		return N==0;
 	}
 	
-	//ÊÇ·ñ°üº¬Ä³¼ü
+	//æ˜¯å¦åŒ…å«æŸé”®
 	public boolean contains(Key key){
 		if(get(key)==null){
 			return false;
@@ -62,7 +62,7 @@ public class SequentialSearchST<Key,Value> {
 	
 	public void delete(Key key){
 		if(key==null){
-			throw new IllegalArgumentException("¼üÖµ²»´æÔÚ£¡"); 
+			throw new IllegalArgumentException("é”®å€¼ä¸å­˜åœ¨ï¼"); 
 		}
 		first=delete(first,key);
 	}
@@ -88,7 +88,7 @@ public class SequentialSearchST<Key,Value> {
     
     public static void main(String[] args) {
     	Scanner in=new Scanner(System.in);
-        SequentialSearchST<String, Integer> st = new SequentialSearchST<String, Integer>();
+        Link<String, Integer> st = new Link<String, Integer>();
         String line=in.nextLine();
         String[] value=line.split(" ");
         for(int n=0;n<value.length;n++)
