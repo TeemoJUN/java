@@ -9,10 +9,10 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 	
 	
 	private class Node{
-		private Key key;//¼ü
-		private Value val;//Öµ
-		private Node left,right;//×óÓÒÁ´½Ó
-		private int N;//ÒÔ¸Ã½ÚµãÎª¸ù½ÚµãµÄ½Úµã×ÜÊı
+		private Key key;//é”®
+		private Value val;//å€¼
+		private Node left,right;//å·¦å³é“¾æ¥
+		private int N;//ä»¥è¯¥èŠ‚ç‚¹ä¸ºæ ¹èŠ‚ç‚¹çš„èŠ‚ç‚¹æ€»æ•°
 		
 		public Node(Key key,Value val,int n){
 			this.key=key;
@@ -21,7 +21,7 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 		}
 	}
 	
-	//Í³¼Æ½ÚµãÊı
+	//ç»Ÿè®¡èŠ‚ç‚¹æ•°
 	public int size(){
 		return size(root);
 	}
@@ -38,7 +38,7 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 	        return size() == 0;
 	    }
 	
-	//°´¼üÕÒÖµ´Ó¸ú½Úµã¿ªÊ¼ÕÒÆğ
+	//æŒ‰é”®æ‰¾å€¼ä»è·ŸèŠ‚ç‚¹å¼€å§‹æ‰¾èµ·
 	public Value get(Key key){
 		return get(root,key);
 	}
@@ -47,7 +47,7 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 		if(x==null){
 			return null;
 		}
-		//ºÍµ±Ç°½Úµã±È½Ï£¬´óÓÚÔòÔÚÓÒ×ÓÊ÷ÕÒ£¬Ğ¡ÓÚÔòÔÚ×ó×ÓÊ÷ÕÒ£¬µÈÓÚ¾ÍÖ±½Ó·µ»Øµ±Ç°Öµ
+		//å’Œå½“å‰èŠ‚ç‚¹æ¯”è¾ƒï¼Œå¤§äºåˆ™åœ¨å³å­æ ‘æ‰¾ï¼Œå°äºåˆ™åœ¨å·¦å­æ ‘æ‰¾ï¼Œç­‰äºå°±ç›´æ¥è¿”å›å½“å‰å€¼
 		int cmp=key.compareTo(x.key);
 		if(cmp<0){
 			return get(x.left,key);
@@ -59,8 +59,8 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 			return x.val;
 		}
 	}
-	//´Óroot¿ªÊ¼ÕÒkey¼üÖµÕÒµ½¾Í¸üĞÂval
-	//×¢ÒâÀí½âÕâ¸ö'root='
+	//ä»rootå¼€å§‹æ‰¾keyé”®å€¼æ‰¾åˆ°å°±æ›´æ–°val
+	//æ³¨æ„ç†è§£è¿™ä¸ª'root='
 	public void put(Key key,Value val){
 		root=put(root,key,val);
 	}
@@ -68,7 +68,7 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 		if(x==null){
 			return new Node(key,val,1);
 		}
-		//Í¬getÒ»ÑùÀí½â
+		//åŒgetä¸€æ ·ç†è§£
 		int cmp=key.compareTo(x.key);
 		if(cmp<0){
 			x.left=put(x.left,key,val);
@@ -85,12 +85,12 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 		return x;
 	}
 	
-	//ÕÒ¼üÖµ×îĞ¡
+	//æ‰¾é”®å€¼æœ€å°
     public Key min() {
-        if (isEmpty()) throw new NoSuchElementException("Ê÷Îª¿Õ");
+        if (isEmpty()) throw new NoSuchElementException("æ ‘ä¸ºç©º");
         return min(root).key;
     } 
-	//µ±×ó×ÓÊ÷Îª¿ÕÊ±£¬ËµÃ÷ÒÑ¾­µ½´ïÁË×î×ó£¬¼´·µ»Øx£¬·ñÔòÒ»Ö±µİ¹éÑ°ÕÒ
+	//å½“å·¦å­æ ‘ä¸ºç©ºæ—¶ï¼Œè¯´æ˜å·²ç»åˆ°è¾¾äº†æœ€å·¦ï¼Œå³è¿”å›xï¼Œå¦åˆ™ä¸€ç›´é€’å½’å¯»æ‰¾
 	private Node min(Node x){
 		if(x.left==null){
 			return x;
@@ -98,7 +98,7 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 		return min(x.left);
 	}
 	
-	//ÕÒ×î´ó¼ü
+	//æ‰¾æœ€å¤§é”®
 	public Key max(){
 		return max(root).key;
 	}
@@ -109,7 +109,7 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 		return max(x.right);
 	}
 	
-	//ÕÒÑ°Ç¡ºÃĞ¡ÓÚµÈÓÚkeyµÄkey
+	//æ‰¾å¯»æ°å¥½å°äºç­‰äºkeyçš„key
 	public Key floor(Key key){
 		Node x=floor(root,key);
 		if(x==null){
@@ -117,7 +117,7 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 		}
 		return x.key;
 	}
-	//½«keyÓëx.key½øĞĞ±È½ÏÈ»ºó²éÑ¯
+	//å°†keyä¸x.keyè¿›è¡Œæ¯”è¾ƒç„¶åæŸ¥è¯¢
 	private Node floor(Node x,Key key){
 		if(x==null){
 			return null;
@@ -129,7 +129,7 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 		else if(cmp<0){
 			return floor(x.left,key);
 		}
-		//µ±key´óÓÚx.keyÊ±£¬¿ÉÄÜxµÄÓÒ×ÓÊ÷Ã»ÓĞ£¬ËùÒÔÒªÅĞ¶ÏËûÊÇ·ñÃ»null£¬ÎªnullÔòx±¾Éí¾ÍÊÇ×î½Ó½ükeyµÄ×îĞ¡¼üÖµ
+		//å½“keyå¤§äºx.keyæ—¶ï¼Œå¯èƒ½xçš„å³å­æ ‘æ²¡æœ‰ï¼Œæ‰€ä»¥è¦åˆ¤æ–­ä»–æ˜¯å¦æ²¡nullï¼Œä¸ºnullåˆ™xæœ¬èº«å°±æ˜¯æœ€æ¥è¿‘keyçš„æœ€å°é”®å€¼
 		Node t=floor(x.right,key);
 		if(t!=null){
 			return t;
@@ -139,8 +139,8 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 		}
 	}
     public Key ceiling(Key key) {
-        if (key == null) throw new IllegalArgumentException("Òª²éÕÒµÄ¼üÎª¿Õ");
-        if (isEmpty()) throw new NoSuchElementException("µ±Ç°¸ÃÊ÷Îª¿Õ");
+        if (key == null) throw new IllegalArgumentException("è¦æŸ¥æ‰¾çš„é”®ä¸ºç©º");
+        if (isEmpty()) throw new NoSuchElementException("å½“å‰è¯¥æ ‘ä¸ºç©º");
         Node x = ceiling(root, key);
         if (x == null) return null;
         else return x.key;
@@ -158,7 +158,7 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
         return ceiling(x.right, key); 
     }
 	
-	//²éÕÒµÚkÎ»µÄkeyÖµ
+	//æŸ¥æ‰¾ç¬¬kä½çš„keyå€¼
 	public Key select(int k){
 		return select(root,k).key;
 	}
@@ -178,7 +178,7 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 		}
 	}
 	
-	//²éÕÒĞ¡ÓÚkeyµÄ¸öÊı
+	//æŸ¥æ‰¾å°äºkeyçš„ä¸ªæ•°
 	public int rank(Key key){
 		return rank(key,root);
 	}
@@ -192,7 +192,7 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 			return rank(key,x.left);
 		}
 		else if(cmp>0){
-			//µ±´óÓÚÊ±£¬ÔòÒª²éÕÒxµÄÓÒ×ÖÊı£¬ÇÒxµÄ×ó×ÓÊ÷È«¶¼Ğ¡ÓÚkeyËùÒÔÒª¼ÓÉÏsize£¨x.left£©,»¹ÓĞx±¾ÉíµÄkeyÒ²ÊÇĞ¡ÓÚkeyµÄËùÒÔ+1.
+			//å½“å¤§äºæ—¶ï¼Œåˆ™è¦æŸ¥æ‰¾xçš„å³å­—æ•°ï¼Œä¸”xçš„å·¦å­æ ‘å…¨éƒ½å°äºkeyæ‰€ä»¥è¦åŠ ä¸Šsizeï¼ˆx.leftï¼‰,è¿˜æœ‰xæœ¬èº«çš„keyä¹Ÿæ˜¯å°äºkeyçš„æ‰€ä»¥+1.
 			return rank(key,x.right)+size(x.left)+1;
 		}
 		else{
@@ -200,22 +200,22 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 		}
 	}
 	
-	//É¾³ı×îĞ¡¼ü
+	//åˆ é™¤æœ€å°é”®
 	public void deleteMin(){
 		root=deleteMin(root);
 	}
-	//Èç¹ûx×ó×ÓÊ÷²»´æÔÚ£¬¼´x±¾Éí¾ÍÊÇ×îĞ¡µÄ£¬¾Í½«xµÄÓÒ×ÓÊ÷·µ»Ø£¬
-	//×¢Òâ·µ»Ø¸øµÄÊÇxµÄ¸¸½Úµã£¬¼´½«xµÄ¸¸½ÚµãÓëxµÄÓÒ×ÓÊ÷Á¬½Ó£¬Ìø¹ıÁËx
+	//å¦‚æœxå·¦å­æ ‘ä¸å­˜åœ¨ï¼Œå³xæœ¬èº«å°±æ˜¯æœ€å°çš„ï¼Œå°±å°†xçš„å³å­æ ‘è¿”å›ï¼Œ
+	//æ³¨æ„è¿”å›ç»™çš„æ˜¯xçš„çˆ¶èŠ‚ç‚¹ï¼Œå³å°†xçš„çˆ¶èŠ‚ç‚¹ä¸xçš„å³å­æ ‘è¿æ¥ï¼Œè·³è¿‡äº†x
 	private Node deleteMin(Node x){	
 		if(x.left==null){
 			return x.right;
 		}
 		x.left=deleteMin(x.left);
-		x.N=size(x.left)+size(x.right)+1;//¸üĞÂN
+		x.N=size(x.left)+size(x.right)+1;//æ›´æ–°N
 		return x;
 	}
 	
-	//É¾³ı×î´ó¼ü
+	//åˆ é™¤æœ€å¤§é”®
 	public void deleteMax(){
 		root=deleteMax(root);
 	}
@@ -227,14 +227,14 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 		x.N=size(x.right)+size(x.left)+1;
 		return x;
 	}
-	//°´¼üÉ¾³ı
+	//æŒ‰é”®åˆ é™¤
 	public void delete(Key key){
 		root=delete(root,key);
 	}
-	//ÖØµã½²½âÕÒµ½ÁË½ÚµãÊ±£¬¿´¸Ã½ÚµãµÄ×ó×ÓÊ÷ÊÇ·ñÎª¿Õ£¬¿ÕÔò½«ÓÒ×ÓÊ÷return ¼´½«ÆäÓëx¸¸½ÚµãÁ¬½Ó¡£x.right==nullÒàÈç´Ë
-	//Èç¹û²»Îª¿Õ£¬Ôò±£´æNode t=x;
-	//ÔÚtµÄÓÒ×ÓÊ÷ÖĞÑ°ÕÒ×îĞ¡µÄ½Úµã£¬È¡³öËü¡£
-	//Ìæ»»Ô­À´µÄx²¢·µ»ØÏÖÔÚµÄx
+	//é‡ç‚¹è®²è§£æ‰¾åˆ°äº†èŠ‚ç‚¹æ—¶ï¼Œçœ‹è¯¥èŠ‚ç‚¹çš„å·¦å­æ ‘æ˜¯å¦ä¸ºç©ºï¼Œç©ºåˆ™å°†å³å­æ ‘return å³å°†å…¶ä¸xçˆ¶èŠ‚ç‚¹è¿æ¥ã€‚x.right==nulläº¦å¦‚æ­¤
+	//å¦‚æœä¸ä¸ºç©ºï¼Œåˆ™ä¿å­˜Node t=x;
+	//åœ¨tçš„å³å­æ ‘ä¸­å¯»æ‰¾æœ€å°çš„èŠ‚ç‚¹ï¼Œå–å‡ºå®ƒã€‚
+	//æ›¿æ¢åŸæ¥çš„xå¹¶è¿”å›ç°åœ¨çš„x
 	private Node delete(Node x,Key key){
 		if(x==null){
 			return null;
@@ -258,34 +258,49 @@ public class BinarySearchTree<Key extends Comparable<Key>,Value> {
 			x.right=deleteMin(t.right);
 			x.left=t.left;
 		}
-		x.N=size(x.left)+size(x.right)+1;//¸üĞÂĞ¡ÓÚµÈÓÚx×ÓÊ÷½ÚµãÊı
+		x.N=size(x.left)+size(x.right)+1;//æ›´æ–°å°äºç­‰äºxå­æ ‘èŠ‚ç‚¹æ•°
 		return x;
 	}
-	
+	//ä¸­åºéå†	
 	public Iterable<Key> keys(){
 		return keys(min(),max());
 	}
-	public Iterable<Key> keys(Key lo,Key hi){
-		Queue<Key> queue=new Queue<Key>();
-		keys(root,queue,lo,hi);
-		return queue;
-	}
+    	public Iterable<Key> keys(Key lo, Key hi) {
+       		if (lo == null) throw new IllegalArgumentException("è¾“å…¥æœ€å°é”®ä¸ºç©º!");
+        	if (hi == null) throw new IllegalArgumentException("è¾“å…¥æœ€å¤§é”®ä¸ºç©ºï¼");
+
+        	Queue<Key> queue = new Queue<Key>();
+        	keys(root, queue, lo, hi);
+       		return queue;
+    	} 
+
+    	private void keys(Node x, Queue<Key> queue, Key lo, Key hi) { 
+        	if (x == null) return; 
+        	int cmplo = lo.compareTo(x.key); 
+        	int cmphi = hi.compareTo(x.key); 
+        	if (cmplo < 0) keys(x.left, queue, lo, hi); 
+        	if (cmplo <= 0 && cmphi >= 0) queue.enqueue(x.key); 
+        	if (cmphi > 0) keys(x.right, queue, lo, hi); 
+    	} 
 	
-	private void keys(Node x,Queue<Key> queue,Key lo,Key hi){
-		if(x==null){
-			return;
+	
+	//å±‚æ¬¡éå†
+	public Queue leverTravel(){
+		Queue<Node> queue=new Queue<Node>();
+		Queue<Key> que=new Queue<Key>();
+		queue.enqueue(root);
+		while(!queue.isEmpty()){
+			Node x=queue.dequeue();
+			que.enqueue(x.key);
+			if(x.left!=null){
+				queue.enqueue(x.left);
+			}
+			if(x.right!=null){
+				queue.enqueue(x.right);
+			}
 		}
-		int cmplo=lo.compareTo(x.key);
-		int cmphi=hi.compareTo(x.key);
-		if(cmplo<0){
-			keys(x.left,queue,lo,hi);
-		}
-		else if(cmplo<=0&&cmphi>=0){
-			queue.enqueue(x.key);
-		}
-		if(cmphi>0){
-			keys(x.right,queue,lo,hi);
-		}
+		return que;
+		
 	}
 	
 }
