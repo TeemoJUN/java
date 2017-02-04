@@ -1,6 +1,9 @@
 package Search;
-
-import a.Queue;
+/*
+*
+*è¯¥æ–‡ä»¶ä¸ºBinarySearchTreeçš„æµ‹è¯•æ–‡ä»¶
+*/
+import java.Queue;
 
 public class BSTTest {
 	public static void main(String[] args) {
@@ -8,18 +11,18 @@ public class BSTTest {
 		BinarySearchTree<String, Integer> tree = new BinarySearchTree<String, Integer>();
 		String line = "DABECF";
 		String[] keys = line.split("");
-		System.out.print("ÊäÈëµÄÎª£º" + line);
+		System.out.print("è¾“å…¥çš„ä¸ºï¼š" + line);
 		for (int i = 0; i < keys.length; i++) {
 			tree.put(keys[i], i);
 		}
 
 		System.out.print("\n");
-		System.out.print("ÖĞĞò±éÀúÒ»£º");
+		System.out.print("ä¸­åºéå†ä¸€ï¼š");
 		for (String key : tree.keys()) {
 			System.out.print(key + ":" + tree.get(key) + "   ");
 		}
 		System.out.print("\n");
-		System.out.print("²ã´Î±éÀúÒ»£º");
+		System.out.print("å±‚æ¬¡éå†ä¸€ï¼š");
 		Queue<String> queue_1 = tree.leverTravel();
 		for (String key : queue_1) {
 			System.out.print(key + ":" + tree.get(key) + "   ");
@@ -29,12 +32,12 @@ public class BSTTest {
 		System.out.print("\n");
 		System.out.println("------------delete-----Key:A------------");
 		tree.delete("A");
-		System.out.print("ÖĞĞò±éÀú¶ş£º");
+		System.out.print("ä¸­åºéå†äºŒï¼š");
 		for (String key : tree.keys()) {
 			System.out.print(key + ":" + tree.get(key) + "   ");
 		}
 		System.out.print("\n");
-		System.out.print("²ã´Î±éÀú¶ş£º");
+		System.out.print("å±‚æ¬¡éå†äºŒï¼š");
 		Queue<String> queue_2 = tree.leverTravel();
 		for (String key : queue_2) {
 			System.out.print(key + ":" + tree.get(key) + "   ");
@@ -44,12 +47,12 @@ public class BSTTest {
 		System.out.print("\n");
 		System.out.println("------------delete-----Put:(X,9)--------");
 		tree.put("X", 9);
-		System.out.print("ÖĞĞò±éÀú¶ş£º");
+		System.out.print("ä¸­åºéå†ä¸‰ï¼š");
 		for (String key : tree.keys()) {
 			System.out.print(key + ":" + tree.get(key) + "   ");
 		}
 		System.out.print("\n");
-		System.out.print("²ã´Î±éÀú¶ş£º");
+		System.out.print("å±‚æ¬¡éå†ä¸‰ï¼š");
 
 		Queue<String> queue_3 = tree.leverTravel();
 		for (String key : queue_3) {
@@ -60,12 +63,12 @@ public class BSTTest {
 		System.out.print("\n");
 		System.out.println("------------update-----Put:(X,8)--------");
 		tree.put("X", 8);
-		System.out.print("ÖĞĞò±éÀú¶ş£º");
+		System.out.print("ä¸­åºéå†å››ï¼š");
 		for (String key : tree.keys()) {
 			System.out.print(key + ":" + tree.get(key) + "   ");
 		}
 		System.out.print("\n");
-		System.out.print("²ã´Î±éÀú¶ş£º");
+		System.out.print("å±‚æ¬¡éå†å››ï¼š");
 
 		Queue<String> queue_4 = tree.leverTravel();
 		for (String key : queue_4) {
