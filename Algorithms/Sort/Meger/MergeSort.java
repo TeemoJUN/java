@@ -10,7 +10,7 @@ class SortOne{
 	public static void merge(Integer[] a,int lo,int mid,int hi){
 		int i=lo,j=mid+1;
 		//创建另一个数组来接收
-		for(int k=0;k<=hi;k++){
+		for(int k=lo;k<=hi;k++){
 			aux[k]=a[k];
 		}
 	
