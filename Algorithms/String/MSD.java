@@ -27,18 +27,22 @@ public class MSD {
 		}
 		
 		int[] count=new int[R+2];
+		//计算频率这里加二是因为ASCII码扩展位有256位，加上在charAt()中匹配为-1的总共257位，集体后移一位		
 		for(int i=lo;i<=hi;i++){
 			count[charAt(a[i],d)+2]++;
 		}
-		
+				
+		//计算索引值		
 		for(int r=0;r<R+1;r++){
 			count[r+1]+=count[r];
 		}
-		
+				
+		//数据分类		
 		for(int i=lo;i<=hi;i++){
 			aux[count[charAt(a[i],d)+1]++]=a[i];
 		}
 		
+		//回写		
 		for(int i=lo;i<=hi;i++){
 			a[i]=aux[i-lo];
 		}
