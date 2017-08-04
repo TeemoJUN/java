@@ -6,3 +6,27 @@
 
 
 ## 好好学习,加油
+
+
+
+
+
+```java
+//中序遍历非递归实现
+public void iteraMidOrder(BinTreeNode<T>p){
+        Stack<BinTreeNode<T>>stack = new Stack<BinTreeNode<T>>();
+        BinTreeNode<T> node = p;
+        while(node != null || stack.size()>0){
+            while(node != null){
+                stack.push(node);
+                node = node.getLeftNode();
+            }
+            if(stack.size()>0){
+                node = stack.pop();
+                printInfo(node);
+                node = node.getRightNode();
+            }
+        }
+    }
+
+```
