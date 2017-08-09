@@ -27,6 +27,8 @@ public void iteraMidOrder(BinTreeNode<T>p){
                 node = node.getRightNode();
             }
         }
-    }
-
+    }
+    
+//因为本身递归就是栈的调用,所以就可以用栈来模拟
 ```
+
