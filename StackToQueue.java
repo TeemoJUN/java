@@ -1,5 +1,9 @@
 package one;
 
+/*
+*用两个栈来模拟队列
+*/
+
 public class StackToQueue<Item>{
 
 	private Stack<Item> stack1;
@@ -17,7 +21,7 @@ public class StackToQueue<Item>{
 	
 	public Item dequeue() throws Exception{
 		if(N==0){
-			throw new RuntimeException("Ϊ��");
+			throw new RuntimeException("ÎŞżŐ");
 		}
 		if(stack2.size()==0){
 			while(stack1.size()!=0){
