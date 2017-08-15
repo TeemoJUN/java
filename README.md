@@ -32,3 +32,7 @@ public void iteraMidOrder(BinTreeNode<T>p){
 //因为本身递归就是栈的调用,所以就可以用栈来模拟
 ```
 
+
++ Dequeue.java为双向对列，双链表版
++ MoveQueue.java为出列排序（基于Dequeue的）
+
